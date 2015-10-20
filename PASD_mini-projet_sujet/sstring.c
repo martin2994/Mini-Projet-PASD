@@ -139,19 +139,15 @@ void sstring_concatenate ( sstring ss1,
  * \return an independant copy of \c ss
  */
 sstring sstring_copy ( sstring ss )  { 
-  sstring cpy=sstring_create_empty();
-  if(!sstring_is_empty(ss)){
-      int length=ss->length;
-      cpy->length=length;
-      char * charsequence=(char*)malloc(length*sizeof(char));
-      for (int i=0;i<length;i++){
-	charsequence[i]=ss->charsequence[i];
-      }
-      cpy->charsequence=charsequence;
-    }
-  return cpy ;
- }
-
+	sstring cpy=NULL;
+	if(!sstring_is_empty(ss)){
+		cpy=sstring_create_string(ss->charsequence);
+	}else{
+		cpy=sstring_create_empty();
+	}
+	return cpy ;
+ }	
+	
 
 /*!
  * Indicate how two \c sstring are ordered alphabetically.

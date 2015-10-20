@@ -196,19 +196,17 @@ chunk linked_list_chunk_pop_front ( linked_list_chunk llc )  {
  */
 bool linked_list_chunk_add_self_copy_front ( linked_list_chunk llc ,
 						    unsigned int k )  {
-  if(linked_list_chunk_is_empty(llc)){
-    return false;
-  }else{
-    unsigned int i=0;
-    link l=llc->first;
-    while (l!=NULL)
-      i++;
-    if(i<k){
+  link p=llc->first;
+  for(unsigned int i=0;i<k;i++){
+    if(p==NULL)
       return false;
-    }else{
-      return true; //en cours
-    }
+    p=p->tail;
   }
+  for (unsigned int i=0;i<k;i++){
+    linked_list_chunk_add_front(llc,chunk_copy(p->value));
+    p=p->tail;
+  }
+  return true;
 }
 
 
@@ -218,7 +216,18 @@ bool linked_list_chunk_add_self_copy_front ( linked_list_chunk llc ,
  * \param llc \c linked_list_chunk to copy
  * \pre \c llc is valid (assert-ed)
  */linked_list_chunk linked_list_chunk_copy ( linked_list_chunk llc )  { 
-   return NULL;
+   linked_list_chunk cpy=NULL;
+   if (linked_list_chunk_is_empty(llc)){
+     cpy=linked_list_chunk_create();
+   }else{
+     cpy=linked_list_chunk_create();
+     link p=llc->first;
+     while (p!=NULL){
+       linked_list_chunk_add_back(cpy,chunk_copy(p->value));
+       p=p->tail;
+     }
+   }
+   return cpy;
 }
 
 
