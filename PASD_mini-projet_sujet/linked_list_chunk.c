@@ -41,8 +41,8 @@
 typedef struct link_struct* link;
  struct link_struct{
   chunk value;
-  link  head;
-  link tail;
+  link previous;//head
+  link next;//tail
 };
 
 struct linked_list_chunk_struct{
@@ -59,7 +59,7 @@ linked_list_chunk linked_list_chunk_create ( void )  {
   linked_list_chunk llc=(linked_list_chunk)malloc(sizeof(linked_list_chunk));
   llc->first=NULL;
   llc->last=NULL;
-  return NULL ;
+  return llc ;
  }
 
 
@@ -70,11 +70,17 @@ linked_list_chunk linked_list_chunk_create ( void )  {
  * \pre \c llc is valid (assert-ed)
  */
 void linked_list_chunk_destroy ( linked_list_chunk llc )  {
-  link l=llc->first;
-  while (l!=NULL){
-    l=l->tail;
-    free(l->head);
-  }
+  if(!linked_list_chunk_is_empty(llc))
+  {
+	link l=llc->first;
+	while (l->next!=NULL){
+	l=l->next;
+	l->value=NULL;//ou destroy
+	free(l->previous);
+	}
+	l->value=NULL;//ou destroy
+	free(llc->last);
+   }
   free(llc);
 }
 
@@ -106,7 +112,7 @@ void linked_list_chunk_print ( linked_list_chunk llc ,
   while(l!=NULL){
     chunk_print(l->value,f);
     fprintf(f,"\n");
-    l=l->tail;
+    l=l->next;
   }
 }
 
@@ -121,16 +127,18 @@ void linked_list_chunk_print ( linked_list_chunk llc ,
 void linked_list_chunk_add_front ( linked_list_chunk llc ,
 					  chunk ch )  {
   if(linked_list_chunk_is_empty(llc)){
-    llc->first=(link)malloc(sizeof(link));
-    llc->first->value=ch;
-    llc->first->head=NULL;
-    llc->first->tail=NULL;
+    link l=(link)malloc(sizeof(link));
+    l->value=ch;
+    l->previous=NULL;
+    l->next=NULL;
+    llc->first=l;
+    llc->last=l;
   }else{
     link l=(link)malloc(sizeof(link));
     l->value=ch;
-    l->head=NULL;
-    l->tail=llc->first;
-    llc->first->head=l;
+    l->previous=NULL;
+    l->next=llc->first;
+    llc->first->previous=l;
     llc->first=l;
   }    
 }
@@ -146,16 +154,18 @@ void linked_list_chunk_add_front ( linked_list_chunk llc ,
 void linked_list_chunk_add_back ( linked_list_chunk llc ,
 					 chunk ch )  {
 if(linked_list_chunk_is_empty(llc)){
-    llc->first=(link)malloc(sizeof(link));
-    llc->first->value=ch;
-    llc->first->head=NULL;
-    llc->first->tail=NULL;
+    link l=(link)malloc(sizeof(link));
+    l->value=ch;
+    l->previous=NULL;
+    l->next=NULL;
+    llc->first=l;
+    llc->last=l;
   }else{
     link l=(link)malloc(sizeof(link));
     l->value=ch;
-    l->tail=NULL;
-    l->head=llc->last;
-    llc->last->tail=l;
+    l->next=NULL;
+    l->previous=llc->last;
+    llc->last->next=l;
     llc->last=l;
   } 
 }
@@ -168,16 +178,24 @@ if(linked_list_chunk_is_empty(llc)){
  * \return The removed \c chunk at the beginning or \c NULL if linked_list_chunk empty
  */
 chunk linked_list_chunk_pop_front ( linked_list_chunk llc )  {
-  link l=llc->first;
-  chunk c=l->value;
-  if (linked_list_chunk_is_empty(llc)){
+if (linked_list_chunk_is_empty(llc)){
     return NULL;
-  }else{
-    llc->first=l->tail;
+  }  
+  link l=llc->first;
+  chunk ch=l->value;
+  if(llc->first == llc->last){
+    llc->first=NULL;
+    llc->last=NULL;
+    l->value=NULL;
     free(l);
-    return c;
-  } 
-}
+  }else{
+    llc->first=l->next;
+    free(l);
+  }
+	
+    return ch;
+} 
+
 
 
 /*!
@@ -196,19 +214,25 @@ chunk linked_list_chunk_pop_front ( linked_list_chunk llc )  {
  */
 bool linked_list_chunk_add_self_copy_front ( linked_list_chunk llc ,
 						    unsigned int k )  {
+  if(linked_list_chunk_is_empty(llc)){
+	if(k!=0){
+		return false;
+	}else{
+		return true;
+	}
+  }
   link p=llc->first;
   for(unsigned int i=0;i<k;i++){
-    if(p==NULL)
+    if(p->next ==NULL)
       return false;
-    p=p->tail;
+    p=p->next;
   }
-  for (unsigned int i=0;i<k;i++){
-    linked_list_chunk_add_front(llc,chunk_copy(p->value));
-    p=p->tail;
+  for (unsigned int i=k;i>0;i--){
+    linked_list_chunk_add_front(llc,p->value);
+    p=p->previous;
   }
   return true;
 }
-
 
 /*!
  * Generate a copy of the \c linked_list_chunk.
@@ -216,16 +240,14 @@ bool linked_list_chunk_add_self_copy_front ( linked_list_chunk llc ,
  * \param llc \c linked_list_chunk to copy
  * \pre \c llc is valid (assert-ed)
  */linked_list_chunk linked_list_chunk_copy ( linked_list_chunk llc )  { 
-   linked_list_chunk cpy=NULL;
-   if (linked_list_chunk_is_empty(llc)){
-     cpy=linked_list_chunk_create();
-   }else{
-     cpy=linked_list_chunk_create();
+   linked_list_chunk cpy=linked_list_chunk_create();
+   if (!linked_list_chunk_is_empty(llc)){
      link p=llc->first;
-     while (p!=NULL){
-       linked_list_chunk_add_back(cpy,chunk_copy(p->value));
-       p=p->tail;
+     while (p->next!=NULL){
+       linked_list_chunk_add_back(cpy,p->value);
+       p=p->next;
      }
+      linked_list_chunk_add_back(cpy,p->value);
    }
    return cpy;
 }

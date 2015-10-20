@@ -77,6 +77,7 @@ sstring sstring_create_string ( char const * const st )  {
  */
 void sstring_destroy ( sstring ss )  {
     free(ss->charsequence);
+	ss->charsequence=NULL;
     free(ss);
 	ss=NULL;
 }
@@ -121,6 +122,7 @@ void sstring_concatenate ( sstring ss1,
     ss1->length=length;
   }else{
     if(sstring_is_empty(ss1)){
+	free(ss1->charsequence);
       char*c=malloc(ss2->length*sizeof(char));
       for(int i=0;i<ss2->length;i++){
 	c[i]=ss2->charsequence[i];

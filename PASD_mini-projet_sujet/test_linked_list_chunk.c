@@ -30,20 +30,20 @@
  */
 static void test_llc_ch ( linked_list_chunk const llc ,
 			  chunk const ch ) {
-  
+
   fprintf ( stdout , "*** adding to back : \"" ) ;
   chunk_print ( ch , stdout ) ;
   fprintf ( stdout , "\" :\n" ) ;
   linked_list_chunk_add_back ( llc , ch ) ;
   linked_list_chunk_print ( llc , stdout ) ;
-  
+
   fprintf ( stdout , "*** adding to front : \"" ) ;
   chunk_print (  ch , stdout ) ;
   fprintf ( stdout , "\" :\n" ) ;
   linked_list_chunk_add_front ( llc , chunk_copy ( ch ) ) ;
   linked_list_chunk_print ( llc , stdout ) ;
 
-  assert ( ! linked_list_chunk_is_empty ( llc ) ) ;
+    assert ( ! linked_list_chunk_is_empty ( llc ) ) ;
 }
 
 
@@ -83,6 +83,7 @@ int main ( void ) {
   linked_list_chunk_print ( llc_3 , stdout ) ;
 
   linked_list_chunk_destroy ( llc_3 );
+
 
   return 0 ;
 }

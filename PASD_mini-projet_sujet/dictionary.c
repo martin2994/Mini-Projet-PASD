@@ -34,8 +34,18 @@
 
 
 /*! \c dictionary is a pointer to the hidden structure for dictionary. */
+typedef struct node_struct * node;
 
+struct node_struct{
+	chunk* value;
+	sstring key;
+};
 
+struct dictionary_struct{
+	dictionary pere;
+	dictionary filsdroit;
+	dictionary filsgauche;
+}; 
 /*!
  * Generate an empty \c dictionary.
  *

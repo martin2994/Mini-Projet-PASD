@@ -1,1 +1,1197 @@
-/bin/bash: valgrind : commande introuvable
+==3858== Memcheck, a memory error detector
+==3858== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==3858== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==3858== Command: ./test_sstring
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202048 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F63: sstring_print (sstring.c:98)
+==3858==    by 0x401F20: test_sstring_println (test_sstring.c:34)
+==3858==    by 0x401FC3: test_sstring_println_st_ss (test_sstring.c:51)
+==3858==    by 0x4021A5: test_sstring (test_sstring.c:114)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202048 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52020e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F63: sstring_print (sstring.c:98)
+==3858==    by 0x401F20: test_sstring_println (test_sstring.c:34)
+==3858==    by 0x401FC3: test_sstring_println_st_ss (test_sstring.c:51)
+==3858==    by 0x4021E8: test_sstring (test_sstring.c:117)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52020e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202188 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202228 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011B2: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202188 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011C5: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202228 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202188 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202188 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202228 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202228 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52022c8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202368 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011B2: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52022c8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011C5: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202368 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011E3: sstring_compare (sstring.c:177)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202368 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011F6: sstring_compare (sstring.c:177)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52022c8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52022c8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52022c8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202368 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202368 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202408 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52024a8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011B2: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202408 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011C5: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52024a8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011E3: sstring_compare (sstring.c:177)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52024a8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011F6: sstring_compare (sstring.c:177)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202408 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202408 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202408 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52024a8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52024a8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x401017: sstring_concatenate (sstring.c:116)
+==3858==    by 0x402234: test_sstring (test_sstring.c:124)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202048 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x401041: sstring_concatenate (sstring.c:117)
+==3858==    by 0x402234: test_sstring (test_sstring.c:124)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52020e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x401074: sstring_concatenate (sstring.c:120)
+==3858==    by 0x402234: test_sstring (test_sstring.c:124)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202048 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x401088: sstring_concatenate (sstring.c:121)
+==3858==    by 0x402234: test_sstring (test_sstring.c:124)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202048 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F63: sstring_print (sstring.c:98)
+==3858==    by 0x401F20: test_sstring_println (test_sstring.c:34)
+==3858==    by 0x40227E: test_sstring (test_sstring.c:127)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202048 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x401017: sstring_concatenate (sstring.c:116)
+==3858==    by 0x402291: test_sstring (test_sstring.c:129)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52020e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x401041: sstring_concatenate (sstring.c:117)
+==3858==    by 0x402291: test_sstring (test_sstring.c:129)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202048 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x401074: sstring_concatenate (sstring.c:120)
+==3858==    by 0x402291: test_sstring (test_sstring.c:129)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52020e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x401088: sstring_concatenate (sstring.c:121)
+==3858==    by 0x402291: test_sstring (test_sstring.c:129)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52020e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F63: sstring_print (sstring.c:98)
+==3858==    by 0x401F20: test_sstring_println (test_sstring.c:34)
+==3858==    by 0x4022DB: test_sstring (test_sstring.c:132)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52020e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400E71: sstring_create_empty (sstring.c:47)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202608 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E5E: sstring_create_empty (sstring.c:45)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F63: sstring_print (sstring.c:98)
+==3858==    by 0x401F20: test_sstring_println (test_sstring.c:34)
+==3858==    by 0x402361: test_sstring (test_sstring.c:140)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52020e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4010AE: sstring_concatenate (sstring.c:125)
+==3858==    by 0x402374: test_sstring (test_sstring.c:142)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202608 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E5E: sstring_create_empty (sstring.c:45)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4010E8: sstring_concatenate (sstring.c:128)
+==3858==    by 0x402374: test_sstring (test_sstring.c:142)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52020e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x401110: sstring_concatenate (sstring.c:130)
+==3858==    by 0x402374: test_sstring (test_sstring.c:142)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202608 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E5E: sstring_create_empty (sstring.c:45)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F63: sstring_print (sstring.c:98)
+==3858==    by 0x401F20: test_sstring_println (test_sstring.c:34)
+==3858==    by 0x4023BE: test_sstring (test_sstring.c:145)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202608 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E5E: sstring_create_empty (sstring.c:45)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x4023CA: test_sstring (test_sstring.c:147)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202048 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x4023CA: test_sstring (test_sstring.c:147)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202048 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x4023D6: test_sstring (test_sstring.c:148)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52020e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x4023D6: test_sstring (test_sstring.c:148)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x52020e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x4023E2: test_sstring (test_sstring.c:149)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202608 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E5E: sstring_create_empty (sstring.c:45)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x4023E2: test_sstring (test_sstring.c:149)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858==  Address 0x5202608 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E5E: sstring_create_empty (sstring.c:45)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x4023F7: main (test_sstring.c:158)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52026b8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202758 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52027e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202888 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011B2: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52027e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011C5: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202888 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 1
+==3858==    at 0x4011D1: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52028d0 is 0 bytes after a block of size 0 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400EB4: sstring_create_string (sstring.c:62)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011E3: sstring_compare (sstring.c:177)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202888 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 1
+==3858==    at 0x4011EF: sstring_compare (sstring.c:177)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52028d0 is 0 bytes after a block of size 0 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400EB4: sstring_create_string (sstring.c:62)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011F6: sstring_compare (sstring.c:177)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52027e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52027e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52027e8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202888 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202888 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x4021FB: test_sstring (test_sstring.c:119)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202918 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52029a8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011B2: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202918 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 1
+==3858==    at 0x4011BE: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202960 is 0 bytes after a block of size 0 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400EB4: sstring_create_string (sstring.c:62)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011C5: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52029a8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202918 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202918 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52029a8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52029a8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x40220E: test_sstring (test_sstring.c:120)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202a48 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400EFE: sstring_create_string (sstring.c:67)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202ae8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011B2: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202a48 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011C5: sstring_compare (sstring.c:174)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202ae8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011E3: sstring_compare (sstring.c:177)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202ae8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4011F6: sstring_compare (sstring.c:177)
+==3858==    by 0x4020C0: test_sstring_compare (test_sstring.c:80)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202a48 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202a48 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402104: test_sstring_compare (test_sstring.c:88)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202a48 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402021: test_sstring_compare (test_sstring.c:70)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202ae8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x402110: test_sstring_compare (test_sstring.c:89)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202ae8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x402051: test_sstring_compare (test_sstring.c:72)
+==3858==    by 0x402221: test_sstring (test_sstring.c:121)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F63: sstring_print (sstring.c:98)
+==3858==    by 0x401F20: test_sstring_println (test_sstring.c:34)
+==3858==    by 0x40227E: test_sstring (test_sstring.c:127)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52026b8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4010AE: sstring_concatenate (sstring.c:125)
+==3858==    by 0x402291: test_sstring (test_sstring.c:129)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202758 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4010E8: sstring_concatenate (sstring.c:128)
+==3858==    by 0x402291: test_sstring (test_sstring.c:129)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52026b8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x401110: sstring_concatenate (sstring.c:130)
+==3858==    by 0x402291: test_sstring (test_sstring.c:129)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202758 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F63: sstring_print (sstring.c:98)
+==3858==    by 0x401F20: test_sstring_println (test_sstring.c:34)
+==3858==    by 0x4022DB: test_sstring (test_sstring.c:132)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202758 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400E71: sstring_create_empty (sstring.c:47)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202bd8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E5E: sstring_create_empty (sstring.c:45)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F63: sstring_print (sstring.c:98)
+==3858==    by 0x401F20: test_sstring_println (test_sstring.c:34)
+==3858==    by 0x402361: test_sstring (test_sstring.c:140)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202758 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4010AE: sstring_concatenate (sstring.c:125)
+==3858==    by 0x402374: test_sstring (test_sstring.c:142)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202bd8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E5E: sstring_create_empty (sstring.c:45)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4010E8: sstring_concatenate (sstring.c:128)
+==3858==    by 0x402374: test_sstring (test_sstring.c:142)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202758 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x401110: sstring_concatenate (sstring.c:130)
+==3858==    by 0x402374: test_sstring (test_sstring.c:142)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202bd8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E5E: sstring_create_empty (sstring.c:45)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F63: sstring_print (sstring.c:98)
+==3858==    by 0x401F20: test_sstring_println (test_sstring.c:34)
+==3858==    by 0x4023BE: test_sstring (test_sstring.c:145)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x5202bd8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E5E: sstring_create_empty (sstring.c:45)
+==3858==    by 0x4022E0: test_sstring (test_sstring.c:134)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x400F18: sstring_destroy (sstring.c:79)
+==3858==    by 0x4023CA: test_sstring (test_sstring.c:147)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52026b8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x400F28: sstring_destroy (sstring.c:80)
+==3858==    by 0x4023CA: test_sstring (test_sstring.c:147)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858==  Address 0x52026b8 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x402406: main (test_sstring.c:159)
+==3858== 
+==3858== 
+==3858== More than 100 errors detected.  Subsequent errors
+==3858== will still be recorded, but in less detail than before.
+==3858== Invalid read of size 8
+==3858==    at 0x4010AE: sstring_concatenate (sstring.c:125)
+==3858==    by 0x402234: test_sstring (test_sstring.c:124)
+==3858==    by 0x402415: main (test_sstring.c:160)
+==3858==  Address 0x5202c78 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x402415: main (test_sstring.c:160)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4010E8: sstring_concatenate (sstring.c:128)
+==3858==    by 0x402234: test_sstring (test_sstring.c:124)
+==3858==    by 0x402415: main (test_sstring.c:160)
+==3858==  Address 0x5202d08 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x402415: main (test_sstring.c:160)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x401110: sstring_concatenate (sstring.c:130)
+==3858==    by 0x402234: test_sstring (test_sstring.c:124)
+==3858==    by 0x402415: main (test_sstring.c:160)
+==3858==  Address 0x5202c78 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x40216E: test_sstring (test_sstring.c:112)
+==3858==    by 0x402415: main (test_sstring.c:160)
+==3858== 
+==3858== Invalid read of size 8
+==3858==    at 0x4010AE: sstring_concatenate (sstring.c:125)
+==3858==    by 0x402317: test_sstring (test_sstring.c:137)
+==3858==    by 0x402424: main (test_sstring.c:161)
+==3858==  Address 0x5203318 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x402424: main (test_sstring.c:161)
+==3858== 
+==3858== Invalid write of size 8
+==3858==    at 0x401110: sstring_concatenate (sstring.c:130)
+==3858==    by 0x402317: test_sstring (test_sstring.c:137)
+==3858==    by 0x402424: main (test_sstring.c:161)
+==3858==  Address 0x5203318 is 0 bytes after a block of size 8 alloc'd
+==3858==    at 0x4C2BBA0: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3858==    by 0x400E94: sstring_create_string (sstring.c:60)
+==3858==    by 0x4021B1: test_sstring (test_sstring.c:115)
+==3858==    by 0x402424: main (test_sstring.c:161)
+==3858== 
+==3858== 
+==3858== HEAP SUMMARY:
+==3858==     in use at exit: 0 bytes in 0 blocks
+==3858==   total heap usage: 100 allocs, 100 frees, 847 bytes allocated
+==3858== 
+==3858== All heap blocks were freed -- no leaks are possible
+==3858== 
+==3858== For counts of detected and suppressed errors, rerun with: -v
+==3858== ERROR SUMMARY: 2483 errors from 105 contexts (suppressed: 0 from 0)
