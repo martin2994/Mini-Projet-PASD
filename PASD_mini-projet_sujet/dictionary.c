@@ -37,21 +37,30 @@
 typedef struct node_struct * node;
 
 struct node_struct{
-	chunk* value;
+	chunk value;
 	sstring key;
 };
 
 struct dictionary_struct{
-	dictionary pere;
-	dictionary filsdroit;
-	dictionary filsgauche;
+	node val;
+	dictionary father;
+	dictionary right;
+	dictionary left;
 }; 
 /*!
  * Generate an empty \c dictionary.
  *
  * \return an empty \c dictionary
  */
-dictionary dictionary_create ( void )  { return NULL ; }
+dictionary dictionary_create ( void )  { 
+
+	dictionary d=(dictionary)malloc(sizeof(dictionary));
+	d->val=NULL;
+	d->father =NULL;
+	d->right =NULL;
+	d->left =NULL;
+	return d ; 
+}
 
 
 /*!
@@ -68,7 +77,47 @@ dictionary dictionary_create ( void )  { return NULL ; }
  */
 void dictionary_set ( dictionary dic ,
 			     sstring key ,
-			     chunk val )  {}
+			     chunk val )  {
+/*dico vide*/
+	if(dic==NULL)
+	{
+		node n=(node)malloc(sizeof(node));
+		n->key=sstring_copy(key);
+		n->value =chunk_copy(val);
+		dictionary d=dictionary_create ();
+		d->father=dic;
+		d->val=n;
+		dic->left=d;
+	}else if(sstring_compare(key,dic->val->key) < 0)
+	{	
+		if(dic->left==NULL)
+		{
+			node n=(node)malloc(sizeof(node));
+			n->key=sstring_copy(key);
+			n->value =chunk_copy(val);
+			dictionary d=dictionary_create ();
+			d->father=dic;
+			d->val=n;
+			dic->left=d;
+		}else{
+			dictionary_set(dic->left,key,val);
+		}
+	}else if(sstring_compare(key,dic->val->key) > 0)
+	{	
+		if(dic->right==NULL)
+		{
+			node n=(node)malloc(sizeof(node));
+			n->key=sstring_copy(key);
+			n->value =chunk_copy(val);
+			dictionary d=dictionary_create ();
+			d->father=dic;
+			d->val=n;
+			dic->right=d;
+		}else{
+			dictionary_set(dic->right,key,val);
+		}
+	}// si la clé existe déjà on fait rien
+}
 
 
 /*!
@@ -81,7 +130,19 @@ void dictionary_set ( dictionary dic ,
  * \return a \b copy of the associated \c chunk or NULL if undefined 
  */
 chunk dictionary_get_copy ( dictionary dic ,
-				   sstring key )  { return NULL ; }
+				   sstring key )  {
+
+	if(sstring_compare(key,dic->val->key) < 0)
+	{
+		return dictionary_get_copy(dic->left,key);
+	}else if(sstring_compare(key,dic->val->key) > 0)
+	{
+		return dictionary_get_copy(dic->right,key);
+	}else if(sstring_compare(key,dic->val->key) == 0){
+		return chunk_copy(dic->val->value);
+	}
+	return NULL ;
+ }
 
 
 /*!
@@ -91,7 +152,20 @@ chunk dictionary_get_copy ( dictionary dic ,
  * \param dic \c dictionary to destroy
  * \pre no pointer is NULL (assert-ed)
  */
-void dictionary_destroy ( dictionary dic )  {}
+void dictionary_destroy ( dictionary dic )  
+{
+	if (dic->left != NULL)
+		dictionary_destroy(dic->left);
+	if (dic->right != NULL)
+		dictionary_destroy(dic->right);
+	if (dic->left ==NULL && dic->right == NULL){
+		chunk_destroy(dic->val->value);
+		sstring_destroy(dic->val->key);
+		free(dic->val);
+		dic->father=NULL;
+		free(dic);
+  	}
+}
 
 
 /*!
@@ -112,7 +186,16 @@ void dictionary_destroy ( dictionary dic )  {}
  * \pre no pointer is NULL (assert-ed)
  */
 void dictionary_print ( dictionary dic ,
-			       FILE * f )  {}
+			       FILE * f )  
+{
+	if (NULL!= dic){
+	if(dic->left != NULL)
+     		dictionary_print(dic->left,f);
+    	chunk_print(dic->val->value,f);
+    	if(dic->right != NULL)
+    		dictionary_print(dic->right,f);
+  }
+}
 
 
 
