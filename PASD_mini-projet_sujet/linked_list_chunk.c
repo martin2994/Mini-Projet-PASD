@@ -222,7 +222,7 @@ bool linked_list_chunk_add_self_copy_front ( linked_list_chunk llc ,
 	}
   }
   link p=llc->first;
-  for(unsigned int i=0;i<k;i++){
+  for(unsigned int i=0;i<k-1;i++){
     if(p->next ==NULL)
       return false;
     p=p->next;
