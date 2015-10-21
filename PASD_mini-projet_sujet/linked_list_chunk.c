@@ -8,7 +8,7 @@
 # undef NDEBUG   // FORCE ASSERT ACTIVATION
 
 
-//Martin Réty / Bryce Marbois
+//Martin Réty / Bryce Marbois / Ayoub El Fahim
 
 /*!
  * \file
