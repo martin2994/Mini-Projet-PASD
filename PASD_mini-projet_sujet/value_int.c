@@ -9,21 +9,6 @@
 
 # undef NDEBUG   // FORCE ASSERT ACTIVATION
 
-//Réty Martin, Marbois Bryce, Imad SALKI, Ayoub EL FAHIM
-/*
-*
-* 
-* Nous avons un problème de core dumped à la compilation du value_int, 
-*après de nombreuses modifications nous n'avons pas réussi à résoudre le problème.
-* Pouvez nous donner des pistes pour la résoudre.
-*
-*
-*
-*
-
-**/
-
-
 /*!
  * \file 
  * \brief \c value to hold an \c int.
@@ -41,68 +26,54 @@
  */
 
 
-static basic_type value_int_get_value ( chunk const ch ,
-					  va_list va ) {
-    if(ch->state !=NULL){	
-        basic_type* bt=(basic_type*)ch->state;
-	return *bt;
-    }else{
-        return basic_type_error;
-    } 
-}
+const message_action value_int_reactions [] = {
+  MESSAGE_ACTION__BASIC_VALUE(int),
+  {NULL, NULL}
+
+};
 
 
-static basic_type value_int_print ( chunk const ch ,
-				      va_list va ) {
+basic_type value_int_print(chunk const ch, va_list va){
+  basic_type* bt=(basic_type*)ch->state;
+  long long int value = basic_type_get_long_long_int( *bt );
   FILE * f = va_arg ( va , FILE * ) ;
-  basic_type * bt=(basic_type*)ch->state;
-  long long int value=basic_type_get_long_long_int(*bt);
   fprintf ( f
 	    , "%lld"
 	    , value );
-  return basic_type_void ;
+  return basic_type_void; 
 }
 
-
-static basic_type value_int_destroy ( chunk const ch ,
-					va_list va ) {
-    
-    free ( ch -> state ) ;  
-    ch -> state = NULL ;
-    ch -> reactions = NULL ;
-    free ( ch ) ;
-    return basic_type_void ;
+basic_type value_int_destroy(chunk const ch, va_list va){ 
+  free(ch->state);
+  ch->state = NULL;
+  ch->reactions = NULL;
+  free(ch);
+  return basic_type_void;
 }
 
-static basic_type value_int_copy ( chunk const ch ,
-				     va_list va ) {
-  basic_type * bt=(basic_type*)ch->state;	
- chunk c= value_int_create(basic_type_get_long_long_int(*bt));
- return basic_type_pointer( c ) ; 
+basic_type value_int_copy(chunk const ch, va_list va){
+    basic_type* bt=(basic_type*)(ch->state);
+    chunk c = value_int_create(basic_type_get_long_long_int(*bt));
+  return basic_type_pointer(c);
 }
 
-static const message_action value_int_reactions [] = {
-  MESSAGE_ACTION__BASIC_VALUE( int ) ,
-  { NULL, NULL }
-} ;
-
-
-chunk value_int_create (long long int const val  ) {
-  //  Allocation
-  chunk ch = ( chunk ) malloc ( sizeof ( chunk_struct ) ) ; 
-  assert ( NULL != ch ) ;
-  basic_type bt=basic_type_long_long_int(val);
-  ch->state=&bt;
-  assert ( NULL != ch -> state ) ;
-  ch -> reactions = value_int_reactions ;
-  return ch ;
+basic_type value_int_get_value(chunk const ch, va_list va){
+  if(ch->state != NULL){
+    basic_type* bt= (basic_type*) (ch->state);
+    return *bt;
+  }else{
+    basic_type res = basic_type_error; 
+    return res;
+  }
 }
 
+chunk value_int_create ( long long int const val ) {		
+    chunk ch = ( chunk ) malloc( sizeof(struct chunk_struct) );	
+    ch -> state = malloc ( sizeof (basic_type) ); 
+    ch->reactions = value_int_reactions;			 		
+    *(basic_type*)(ch->state) = basic_type_long_long_int(val);		      	
+    return ch;							
+  }
 
-//VALUE_IS_FULL( int )
 
-
-//VALUE_DECLARE( int , long long int ) 
-
-
-
+//VALUE_DECLARE( int, long long int )

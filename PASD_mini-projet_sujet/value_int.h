@@ -27,6 +27,18 @@
 
 VALUE_DECLARE( int , long long int ) 
 
+basic_type value_int_print(chunk const ch, va_list va);
+
+basic_type value_int_destroy(chunk const ch, va_list va);
+
+basic_type value_int_copy(chunk const ch, va_list va);
+
+basic_type value_int_get_value(chunk const ch, va_list va);
+
+
+
+
+
 
 # endif
 
