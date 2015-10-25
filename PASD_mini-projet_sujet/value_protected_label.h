@@ -26,6 +26,16 @@
  */
 
 
+
+basic_type value_protected_label_print(chunk const ch, va_list va);
+
+basic_type value_protected_label_destroy(chunk const ch, va_list va);
+
+basic_type value_protected_label_copy(chunk const ch, va_list va);
+
+basic_type value_protected_label_get_value(chunk const ch, va_list va);
+
+
 VALUE_DECLARE( protected_label , sstring ) 
 
 

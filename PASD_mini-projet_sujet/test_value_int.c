@@ -42,10 +42,10 @@ static void test_chunk ( chunk ch ,
   fputc ( '\n' , stdout ) ;
   chunk ch2 = chunk_copy ( ch ) ;
   assert ( NULL != ch2 ) ;
-  chunk_destroy ( ch ) ;
+   chunk_destroy ( ch ) ;
   chunk_print ( ch2 , stdout ) ;
   fputc ( '\n' , stdout ) ;
-  chunk_destroy ( ch2 ) ;
+   chunk_destroy ( ch2 ) ;
 }
 
 

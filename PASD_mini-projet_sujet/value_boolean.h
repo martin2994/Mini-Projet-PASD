@@ -40,4 +40,13 @@
 VALUE_DECLARE ( boolean , bool )
 
 
+basic_type value_boolean_print(chunk const ch, va_list va);
+
+basic_type value_boolean_destroy(chunk const ch, va_list va);
+
+basic_type value_boolean_copy(chunk const ch, va_list va);
+
+basic_type value_boolean_get_value(chunk const ch, va_list va);
+
+
 # endif

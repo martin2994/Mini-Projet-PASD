@@ -24,5 +24,13 @@
 
 VALUE_DECLARE( double , long double ) 
 
+basic_type value_double_print(chunk const ch, va_list va);
+
+basic_type value_double_destroy(chunk const ch, va_list va);
+
+basic_type value_double_copy(chunk const ch, va_list va);
+
+basic_type value_double_get_value(chunk const ch, va_list va);
+
 
 # endif

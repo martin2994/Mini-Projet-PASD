@@ -24,6 +24,13 @@
  * \date 2015
  * \copyright GNU Public License.
  */
+basic_type value_sstring_print(chunk const ch, va_list va);
+
+basic_type value_sstring_destroy(chunk const ch, va_list va);
+
+basic_type value_sstring_copy(chunk const ch, va_list va);
+
+basic_type value_sstring_get_value(chunk const ch, va_list va);
 
 
 VALUE_DECLARE ( sstring , sstring ) 
