@@ -42,7 +42,7 @@ struct sstring_struct{
  * \return an empty \c sstring
  */
 sstring sstring_create_empty ( void )  { 
-  sstring ss=(sstring)malloc(sizeof(sstring));
+  sstring ss=(sstring)malloc(sizeof(struct sstring_struct));
   ss->length=0;
   ss->charsequence=NULL;
   return ss ;
@@ -57,7 +57,7 @@ sstring sstring_create_empty ( void )  {
  * \return a sstring corresponding to st
  */
 sstring sstring_create_string ( char const * const st )  { 
-  sstring ss=(sstring)malloc(sizeof(sstring));
+  sstring ss=(sstring)malloc(sizeof(struct sstring_struct));
   int length=strlen(st);
   char * charsequence=(char*)malloc(length*sizeof(char));
   for(int i=0;i<length;i++){

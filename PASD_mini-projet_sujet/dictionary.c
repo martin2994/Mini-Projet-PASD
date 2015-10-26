@@ -34,18 +34,13 @@
 
 
 /*! \c dictionary is a pointer to the hidden structure for dictionary. */
-typedef struct node_struct * node;
-
-struct node_struct{
-	chunk value;
-	sstring key;
-};
 
 struct dictionary_struct{
-	node val;
-	dictionary father;
-	dictionary right;
-	dictionary left;
+  chunk val;
+  sstring key;
+  dictionary father;
+  dictionary right;
+  dictionary left;
 }; 
 /*!
  * Generate an empty \c dictionary.
@@ -54,8 +49,9 @@ struct dictionary_struct{
  */
 dictionary dictionary_create ( void )  { 
 
-	dictionary d=(dictionary)malloc(sizeof(dictionary));
+	dictionary d=(dictionary)malloc(sizeof(struct dictionary_struct));
 	d->val=NULL;
+	d->key=NULL;
 	d->father =NULL;
 	d->right =NULL;
 	d->left =NULL;
@@ -78,49 +74,40 @@ dictionary dictionary_create ( void )  {
 void dictionary_set ( dictionary dic ,
 			     sstring key ,
 			     chunk val )  {
-/*dico vide*/
-	if(dic==NULL)
-	{
-		node n=(node)malloc(sizeof(node));
-		n->key=sstring_copy(key);
-		n->value =chunk_copy(val);
-		dictionary d=dictionary_create ();
-		d->father=dic;
-		d->val=n;
-		dic->left=d;
-	}else if(sstring_compare(key,dic->val->key) < 0)
-	{	
-		if(dic->left==NULL)
-		{
-			node n=(node)malloc(sizeof(node));
-			n->key=sstring_copy(key);
-			n->value =chunk_copy(val);
-			dictionary d=dictionary_create ();
-			d->father=dic;
-			d->val=n;
-			dic->left=d;
-		}else{
-			dictionary_set(dic->left,key,val);
-		}
-	}else if(sstring_compare(key,dic->val->key) > 0)
-	{	
-		if(dic->right==NULL)
-		{
-			node n=(node)malloc(sizeof(node));
-			n->key=sstring_copy(key);
-			n->value =chunk_copy(val);
-			dictionary d=dictionary_create ();
-			d->father=dic;
-			d->val=n;
-			dic->right=d;
-		}else{
-			dictionary_set(dic->right,key,val);
-		}
-	}// si la clé existe déjà on fait rien
-}
-
-
-/*!
+  if(dic->val==NULL) {
+      dic->key=sstring_copy(key);
+      dic->val =chunk_copy(val);     
+    }else{
+    int comp=sstring_compare(key,dic->key);
+    if(comp < 0) {	
+      if(dic->left==NULL){
+	dictionary d=dictionary_create ();
+	d->key=sstring_copy(key);
+	d->val =chunk_copy(val);
+	d->father=dic;
+	dic->left=d;
+      }else{
+	dictionary_set(dic->left,key,val);
+      }
+    }else{
+      if(comp > 0){	
+	if(dic->right==NULL){
+	  dictionary d=dictionary_create ();
+	  d->key=sstring_copy(key);
+	  d->val =chunk_copy(val);
+	  d->father=dic;
+	  dic->right=d;
+	}else{
+	  dictionary_set(dic->right,key,val);
+	}
+      }else{
+	chunk_destroy(dic->val);
+	dic->val=chunk_copy(val);
+      }
+    }
+  }
+}  
+  /*!
  * Retrieve a \b copied value from a \c dictionary according to a \c key.
  *
  * \param dic \c dictionary to query from
@@ -131,18 +118,20 @@ void dictionary_set ( dictionary dic ,
  */
 chunk dictionary_get_copy ( dictionary dic ,
 				   sstring key )  {
-
-	if(sstring_compare(key,dic->val->key) < 0)
-	{
-		return dictionary_get_copy(dic->left,key);
-	}else if(sstring_compare(key,dic->val->key) > 0)
-	{
-		return dictionary_get_copy(dic->right,key);
-	}else if(sstring_compare(key,dic->val->key) == 0){
-		return chunk_copy(dic->val->value);
+  int comp=sstring_compare(key,dic->key);
+    if(comp < 0) {
+      return dictionary_get_copy(dic->left,key);
+    }else{ 
+      if(comp > 0){
+	return dictionary_get_copy(dic->right,key);
+      }else{ 
+	if(comp == 0){
+	  return chunk_copy(dic->val);
 	}
-	return NULL ;
- }
+      }
+    }
+  return NULL ;
+}
 
 
 /*!
@@ -159,13 +148,14 @@ void dictionary_destroy ( dictionary dic )
 	if (dic->right != NULL)
 		dictionary_destroy(dic->right);
 	if (dic->left ==NULL && dic->right == NULL){
-		chunk_destroy(dic->val->value);
-		sstring_destroy(dic->val->key);
-		free(dic->val);
+		chunk_destroy(dic->val);
+		sstring_destroy(dic->key);
+		chunk_destroy(dic->val);
 		dic->father=NULL;
 		free(dic);
   	}
 }
+
 
 
 /*!
@@ -189,12 +179,16 @@ void dictionary_print ( dictionary dic ,
 			       FILE * f )  
 {
 	if (NULL!= dic){
-	if(dic->left != NULL)
-     		dictionary_print(dic->left,f);
-    	chunk_print(dic->val->value,f);
-    	if(dic->right != NULL)
-    		dictionary_print(dic->right,f);
-  }
+	  if(dic->left != NULL)
+	    dictionary_print(dic->left,f);
+	  fprintf(f,"\"");
+	  sstring_print(dic->key,f);
+	  fprintf(f,"\" => ");
+	  chunk_print(dic->val,f);
+	  fprintf(f," \n");
+	  if(dic->right != NULL)
+	    dictionary_print(dic->right,f);
+	}
 }
 
 

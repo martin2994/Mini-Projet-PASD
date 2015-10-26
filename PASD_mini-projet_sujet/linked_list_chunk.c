@@ -56,7 +56,7 @@ struct linked_list_chunk_struct{
  * \return an empty \c linked_list_chunk
  */
 linked_list_chunk linked_list_chunk_create ( void )  { 
-  linked_list_chunk llc=(linked_list_chunk)malloc(sizeof(linked_list_chunk));
+  linked_list_chunk llc=(linked_list_chunk)malloc(sizeof(struct linked_list_chunk_struct));
   llc->first=NULL;
   llc->last=NULL;
   return llc ;
@@ -127,14 +127,14 @@ void linked_list_chunk_print ( linked_list_chunk llc ,
 void linked_list_chunk_add_front ( linked_list_chunk llc ,
 					  chunk ch )  {
   if(linked_list_chunk_is_empty(llc)){
-    link l=(link)malloc(sizeof(link));
+    link l=(link)malloc(sizeof(struct link_struct));
     l->value=ch;
     l->previous=NULL;
     l->next=NULL;
     llc->first=l;
     llc->last=l;
   }else{
-    link l=(link)malloc(sizeof(link));
+    link l=(link)malloc(sizeof(struct link_struct));
     l->value=ch;
     l->previous=NULL;
     l->next=llc->first;
@@ -154,14 +154,14 @@ void linked_list_chunk_add_front ( linked_list_chunk llc ,
 void linked_list_chunk_add_back ( linked_list_chunk llc ,
 					 chunk ch )  {
 if(linked_list_chunk_is_empty(llc)){
-    link l=(link)malloc(sizeof(link));
+    link l=(link)malloc(sizeof(struct link_struct));
     l->value=ch;
     l->previous=NULL;
     l->next=NULL;
     llc->first=l;
     llc->last=l;
   }else{
-    link l=(link)malloc(sizeof(link));
+    link l=(link)malloc(sizeof(struct link_struct));
     l->value=ch;
     l->next=NULL;
     l->previous=llc->last;

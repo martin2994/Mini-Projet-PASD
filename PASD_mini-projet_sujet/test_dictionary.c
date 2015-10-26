@@ -36,7 +36,7 @@ static void test_dico_key_val ( dictionary const dic ,
 				chunk const val ) {
   sstring key = sstring_create_string ( key_st ) ;
   dictionary_set ( dic , key , val ) ;
-  /*fprintf ( stdout , "Accessing with key: [%s] \"" , key_st ) ;
+  fprintf ( stdout , "Accessing with key: [%s] \"" , key_st ) ;
   sstring_print ( key , stdout ) ;
   chunk val_get = dictionary_get_copy ( dic , key ) ;
   fprintf ( stdout , "\"\n          expected: \"" ) ;
@@ -46,7 +46,7 @@ static void test_dico_key_val ( dictionary const dic ,
   fprintf ( stdout , "\"\n               got: \"" ) ;
   chunk_print ( val_get , stdout ) ;
   chunk_destroy ( val_get ) ;
-  fprintf ( stdout , "\"\n" ) ;*/
+  fprintf ( stdout , "\"\n" ) ;
 }
 
 
@@ -73,7 +73,7 @@ int main ( void ) {
   test_dico_key_val ( dic , "etsd" , value_boolean_create ( false ) ) ;
 
   dictionary_print ( dic , stdout ) ;
-  
+
   dictionary_destroy ( dic ) ;
   return 0 ;
 }
