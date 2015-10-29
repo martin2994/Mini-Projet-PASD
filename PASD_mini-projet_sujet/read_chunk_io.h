@@ -48,6 +48,12 @@
 
 extern chunk read_chunk_io ( FILE * f ) ;
 
+bool  isDigit      ( int input );
+
+bool  isFloat      ( char * number );
+
+bool  isKeyWord    ( char * input );
+
+chunk createNumber ( char * string_input, bool isNegativ );
 
 # endif
-

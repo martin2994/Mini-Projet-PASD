@@ -44,7 +44,7 @@
 int main (){
 
 	FILE * f = fopen("./test_read_chunk.txt", "r");
-
+	FILE * output = fopen("./output_read_chunk.txt", "w");
 	if(NULL == f){
 		perror("Erreur lors de l'ouverture du fichier.\n");
 		return 0;
@@ -53,14 +53,19 @@ int main (){
 	printf("============================================================\n");
 	printf("\nRead chunk io\n");
 	printf("\n=============================================================\n\n\n");
-
+	int l  = (int)'l';
 	chunk ch;
-	for (int i = 0; i < 12; i++){
+	while (!feof(f)){
 			ch = read_chunk_io(f);
+			if(NULL != ch){
+				chunk_print(ch, output);
+			}
+
 	}
 
 
   printf("\n\n\n============================================================\n");
+	fclose(output);
 	fclose(f);
 	return 0;
 }

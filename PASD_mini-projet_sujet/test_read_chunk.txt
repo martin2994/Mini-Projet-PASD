@@ -1,2 +1,6 @@
-nop pop print start_trace stop_trace copy print_stack print_dictionary if if_else while def  
+nnnnnnop pop ppppppppppppprint ssstart_trace sssstop_trace sercopy rt+print_stack
+
+
+
+ print_dictionary if if_else while def  + - / * 10.568 -10.3 \ok-68 .86 \test +678 !=== <= > = >= % 
 
