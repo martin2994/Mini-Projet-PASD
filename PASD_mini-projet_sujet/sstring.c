@@ -12,7 +12,7 @@
 /*!
  * \file
  * \brief This module provides a « safer » string.
- * 
+ *
  * These are not C-string but a \c struct that holds the length of the string and a pointer to the actual char sequence.
  * Please note that there is no \c '\0' to mark the end of the \c sstring.
  *
@@ -41,7 +41,7 @@ struct sstring_struct{
  *
  * \return an empty \c sstring
  */
-sstring sstring_create_empty ( void )  { 
+sstring sstring_create_empty ( void )  {
   sstring ss=(sstring)malloc(sizeof(struct sstring_struct));
   ss->length=0;
   ss->charsequence=NULL;
@@ -56,10 +56,12 @@ sstring sstring_create_empty ( void )  {
  * \pre st is not \c NULL (assert-ed)
  * \return a sstring corresponding to st
  */
-sstring sstring_create_string ( char const * const st )  { 
+sstring sstring_create_string ( char const * const st )  {
+  assert ( NULL != st );
   sstring ss=(sstring)malloc(sizeof(struct sstring_struct));
-  int length=strlen(st);
-  char * charsequence=(char*)malloc(length*sizeof(char));
+  int length = strlen( st );
+  char * charsequence = (char*) malloc( length*sizeof(char) );
+
   for(int i=0;i<length;i++){
     charsequence[i]=st[i];
   }
@@ -140,7 +142,7 @@ void sstring_concatenate ( sstring ss1,
  * \pre ss is a valid \c sstring (assert-ed)
  * \return an independant copy of \c ss
  */
-sstring sstring_copy ( sstring ss )  { 
+sstring sstring_copy ( sstring ss )  {
 	sstring cpy=NULL;
 	if(!sstring_is_empty(ss)){
 		cpy=sstring_create_string(ss->charsequence);
@@ -148,37 +150,55 @@ sstring sstring_copy ( sstring ss )  {
 		cpy=sstring_create_empty();
 	}
 	return cpy ;
- }	
-	
+ }
+
 
 /*!
  * Indicate how two \c sstring are ordered alphabetically.
  *
- * \param ss1 \c sstring 
- * \param ss2 \c sstring 
+ * \param ss1 \c sstring
+ * \param ss2 \c sstring
  * \pre ss1 and ss2 are valid \c sstring (assert-ed)
- * \return 
+ * \return
  * \li 0 if ss1 == ss2
  * \li -1 if ss1 < ss2
  * \li 1 otherwise
  */
 int sstring_compare ( sstring ss1 ,
-			     sstring ss2 )  {
-  int length=0;
-  if(ss1->length<ss2->length){
-    length=ss2->length;
-  }else{
-    length=ss1->length;
+			                sstring ss2 )  {
+  assert( NULL != ss1);
+  assert( NULL != ss2);
+
+  int length = 0;
+
+  if( ss1->length < ss2->length ){
+      length = ss2->length - ( ss2->length - ss1->length);
+  }else
+  if( ss1->length > ss2->length ){
+      length = ss1->length - ( ss1->length - ss2->length);
   }
-  for (int i=0;i<length;i++){
-    if (ss1->charsequence[i]<ss2->charsequence[i]){
+  else{
+      length = ss1->length;
+  }
+
+  for ( int i = 0; i < length; i++ ){
+    if ( ss1->charsequence[i] < ss2->charsequence[i] ){
       return -1;
     }
-    if(ss2->charsequence[i]<ss1->charsequence[i]){
-      return 1;
+    else if( ss2->charsequence[i] < ss1->charsequence[i]){
+      return  1;
     }
   }
-  return 0 ; 
+
+  if( ss1->length < ss2->length ){
+
+      return -1;
+  }else
+  if ( ss1->length > ss2->length ){
+
+      return 1;
+  }
+  return 0 ;
 }
 
 
@@ -191,8 +211,6 @@ int sstring_compare ( sstring ss1 ,
  * \pre ss is a valid \c sstring (assert-ed)
  * \return true ssi \c ss is empty
  */
-bool sstring_is_empty ( sstring ss )  { 
+bool sstring_is_empty ( sstring ss )  {
   return (ss->length == 0) ;
  }
-
-
