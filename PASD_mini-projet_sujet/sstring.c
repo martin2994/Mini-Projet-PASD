@@ -58,16 +58,28 @@ sstring sstring_create_empty ( void )  {
  */
 sstring sstring_create_string ( char const * const st )  {
   assert ( NULL != st );
-  sstring ss=(sstring)malloc(sizeof(struct sstring_struct));
-  int length = strlen( st );
-  char * charsequence = (char*) malloc( length*sizeof(char) );
 
-  for(int i=0;i<length;i++){
-    charsequence[i]=st[i];
-  }
-  ss->length=length;
-  ss->charsequence=charsequence;
-  return ss ;
+  sstring ss = sstring_create_empty();
+  int length = strlen(st);
+        /*
+      printf("\n*************************");
+      printf("\n\n\n %s \n", st);
+      printf("length = %d \n\n\n", length);
+      printf("*************************\n");
+          */
+      char * charsequence = malloc( (sizeof(char))*(length) );
+
+      for( int i=0; i < length; i++ ){
+        charsequence[i] = st[i];
+      }
+      ss->length       = length;
+      ss->charsequence = charsequence;
+      return ss ;
+
+
+
+
+
  }
 
 
@@ -78,10 +90,16 @@ sstring sstring_create_string ( char const * const st )  {
  * \pre ss is a valid \c sstring (assert-ed)
  */
 void sstring_destroy ( sstring ss )  {
-    free(ss->charsequence);
-	ss->charsequence=NULL;
+    assert( NULL != ss );
+
+
+    if( NULL != ss->charsequence ){
+        free(ss->charsequence);
+        ss->charsequence=NULL;
+    }
+
     free(ss);
-	ss=NULL;
+	  ss=NULL;
 }
 
 
@@ -143,7 +161,10 @@ void sstring_concatenate ( sstring ss1,
  * \return an independant copy of \c ss
  */
 sstring sstring_copy ( sstring ss )  {
-	sstring cpy=NULL;
+  assert( NULL != ss );
+
+
+	sstring cpy = NULL;
 	if(!sstring_is_empty(ss)){
 		cpy=sstring_create_string(ss->charsequence);
 	}else{
