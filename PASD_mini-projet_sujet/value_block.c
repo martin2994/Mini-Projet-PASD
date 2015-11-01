@@ -44,8 +44,62 @@
  * \copyright GNU Public License.
  */
 
+const message_action value_block_reactions [] = {
+  MESSAGE_ACTION__BASIC_VALUE(block),
+  {NULL, NULL}
 
-VALUE_DECLARE ( block , linked_list_chunk )
+};
+
+
+basic_type value_block_print(chunk const ch, va_list va){
+  basic_type* bt=(basic_type*)ch->state;
+  linked_list_chunk value =(linked_list_chunk) basic_type_get_pointer( *bt );
+  FILE * f = va_arg ( va , FILE * ) ;
+  fprintf(f,"\"");
+  linked_list_chunk_print(value,f);
+  fprintf(f,"\"");
+  return basic_type_void; 
+}
+
+basic_type value_block_destroy(chunk const ch, va_list va){ 
+  basic_type* bt=(basic_type*)ch->state;
+  linked_list_chunk value =(linked_list_chunk) basic_type_get_pointer( *bt );
+  linked_list_chunk_destroy(value);	
+  ch->state = NULL;
+  ch->reactions = NULL;
+  free(ch);
+  return basic_type_void;
+}
+
+basic_type value_block_copy(chunk const ch, va_list va){
+    basic_type* bt=(basic_type*)(ch->state);
+    chunk c = value_block_create(linked_list_chunk_copy(basic_type_get_pointer(*bt)));
+  return basic_type_pointer(c);
+}
+
+basic_type value_block_get_value(chunk const ch, va_list va){
+  if(ch->state != NULL){
+    basic_type* bt= (basic_type*) (ch->state);
+    return *bt;
+  }else{
+    basic_type res = basic_type_error; 
+    return res;
+  }
+}
+
+chunk value_block_create ( linked_list_chunk const val ) {		
+    chunk ch = ( chunk ) malloc( sizeof(struct chunk_struct) );	
+    ch -> state = malloc ( sizeof (basic_type) ); 
+    ch->reactions = value_block_reactions;			 		
+    *(basic_type*)(ch->state) = basic_type_pointer(val);		      	
+    return ch;							
+  }
+
+
+
+
+
+//VALUE_DECLARE ( block , linked_list_chunk )
 
 
 /*!
@@ -57,6 +111,10 @@ VALUE_DECLARE ( block , linked_list_chunk )
  * \pre \c vb must be a \c value_block (assert-ed)
  * \return the \c linked_list_chunk held
  */
-linked_list_chunk value_block_get_list ( chunk const vb )  { return NULL ; }
+linked_list_chunk value_block_get_list ( chunk const vb )  {
+	basic_type* bt= (basic_type*) (vb->state);
+	linked_list_chunk llc=(linked_list_chunk)basic_type_get_pointer(*bt);
+	return llc ;
+}
 
 

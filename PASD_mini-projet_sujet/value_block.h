@@ -44,6 +44,15 @@
 VALUE_DECLARE ( block , linked_list_chunk )
 
 
+basic_type value_block_print(chunk const ch, va_list va);
+
+basic_type value_block_destroy(chunk const ch, va_list va);
+
+basic_type value_block_copy(chunk const ch, va_list va);
+
+basic_type value_block_get_value(chunk const ch, va_list va);
+
+
 /*!
  * Return the \c linked_list_chunk held.
  *
