@@ -16,7 +16,7 @@
  * \li values must be \c chunk's
  *
  * Keys and values are copied to get independent long term storage.
- * In the same spirit, queried values are \b copies. 
+ * In the same spirit, queried values are \b copies.
  * The <b>caller is in charge of destroying copies</b>; this is indicated by the \c _copy in the query function name.
  *
  * Values are stored in an ordered binary tree.
@@ -34,8 +34,9 @@
 
 
 /*! \c dictionary is a pointer to the hidden structure for dictionary. */
-typedef struct dictionary_struct * dictionary ;  
+typedef struct dictionary_struct * dictionary ;
 
+typedef struct node_struct * node;
 
 /*!
  * Generate an empty \c dictionary.
@@ -69,7 +70,7 @@ extern void dictionary_set ( dictionary dic ,
  * \param key key to search a value for
  * \pre no pointer is NULL (assert-ed)
  * \pre key is not empty
- * \return a \b copy of the associated \c chunk or NULL if undefined 
+ * \return a \b copy of the associated \c chunk or NULL if undefined
  */
 extern chunk dictionary_get_copy ( dictionary dic ,
 				   sstring key ) ;
