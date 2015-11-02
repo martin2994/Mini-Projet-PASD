@@ -60,21 +60,42 @@ sstring sstring_create_string ( char const * const st )  {
   assert ( NULL != st );
 
   sstring ss = sstring_create_empty();
-  int length = strlen(st);
-        /*
-      printf("\n*************************");
-      printf("\n\n\n %s \n", st);
-      printf("length = %d \n\n\n", length);
-      printf("*************************\n");
-          */
-      char * charsequence = malloc( (sizeof(char))*(length) );
+  if ( NULL != st ){
+      int length = strlen(st);
 
-      for( int i=0; i < length; i++ ){
-        charsequence[i] = st[i];
+      if(length > 0){
+          char * charsequence = malloc( (length + 1) );
+          if ( NULL != charsequence ){
+              strncpy(charsequence, st, length + 1 );
+              free(charsequence[length]);
+              ss->length       = length;
+              ss->charsequence = charsequence;
+              return ss ;
+          }
       }
-      ss->length       = length;
-      ss->charsequence = charsequence;
-      return ss ;
+      else{
+        ss->length       = 0;
+        ss->charsequence = NULL;
+        return ss ;
+      }
+      return NULL;
+
+  }
+
+    /*
+  printf("\n*************************");
+  printf("\n\n\n %s \n", st);
+  printf("length = %d \n\n\n", length);
+  printf("*************************\n");
+      */
+
+
+  /*for(unsigned int i=0; i < length; i++ ){
+    charsequence[i] = st[i];
+  }*/
+
+
+
 
 
 

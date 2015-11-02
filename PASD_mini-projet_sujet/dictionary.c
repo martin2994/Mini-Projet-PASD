@@ -63,8 +63,8 @@ dictionary dictionary_create ( void )  {
 }
 
 node node_create (chunk _val, sstring _key){
-    if( NULL != _val &&
-        NULL != _key ){
+      assert( NULL != _val );
+      assert( NULL != _key );
       node new_node    = malloc( sizeof( struct node_struct ));
       new_node->val    = chunk_copy( _val );
       new_node->key    = sstring_copy( _key );
@@ -72,10 +72,7 @@ node node_create (chunk _val, sstring _key){
       new_node->right  = NULL;
       new_node->left   = NULL;
       return new_node;
-    }
-    else {
-      return NULL;
-    }
+
 
 }
 
@@ -98,6 +95,7 @@ void dictionary_set ( dictionary dic ,
 
     assert( NULL != dic );
     assert( NULL != key );
+    assert( NULL != val );
 
     node node_to_insert;
 
@@ -131,23 +129,15 @@ void dictionary_set ( dictionary dic ,
                 //arbreCourant->father = arbrePere;
 
             }
-            else{
+            else
+            if( compar == 0 )
+            {
 
+                chunk_destroy(arbreCourant->val);
+                sstring_destroy(arbreCourant->key);
 
-
-                if( NULL != val ){
-
-
-
-
-                    chunk_destroy(arbreCourant->val);
-                    sstring_destroy(arbreCourant->key);
-
-                    arbreCourant->val = chunk_copy(val);
-                    arbreCourant->key = sstring_copy(key);
-
-
-                }
+                arbreCourant->val = chunk_copy(val);
+                arbreCourant->key = sstring_copy(key);
 
                 return;
             }
@@ -173,6 +163,30 @@ void dictionary_set ( dictionary dic ,
     }
 }
 
+
+
+chunk node_get_copy (node node_to_search, sstring key){
+
+    int comp=sstring_compare(key, node_to_search->key);
+
+    if(comp < 0) {
+        return node_get_copy(node_to_search->left, key);
+    }
+
+    else
+    if(comp > 0){
+        return node_get_copy(node_to_search->right,key);
+    }
+
+    else
+    if(comp == 0){
+        return chunk_copy(node_to_search->val);
+
+    }
+    return NULL ;
+}
+
+
   /*!
  * Retrieve a \b copied value from a \c dictionary according to a \c key.
  *
@@ -187,7 +201,13 @@ chunk dictionary_get_copy ( dictionary dic ,
 
     assert( NULL != dic );
     assert( NULL != key );
+    //assert( NULL != dic->root );
 
+    return dic->root == NULL ? NULL : node_get_copy (dic->root, key);
+
+
+
+ /*
 
     //On stocke notre racine dans une variable
     node arbreCourant = dic->root;
@@ -218,13 +238,18 @@ chunk dictionary_get_copy ( dictionary dic ,
         }
     }
 
-    if ( node_found ){
+    if ( true == node_found ){
         return chunk_copy(arbreCourant->val);
     }
 
     //Si notre arbre ne contient pas notre valeur on renvoi NULL
     return NULL;
+    */
+
+
 }
+
+
 
 
 
@@ -269,7 +294,6 @@ void dictionary_destroy ( dictionary dic )
 
 void node_print ( node node_to_print,
                   FILE * f ){
-
     if ( NULL != node_to_print ){
 
         if( NULL != node_to_print->left ){
