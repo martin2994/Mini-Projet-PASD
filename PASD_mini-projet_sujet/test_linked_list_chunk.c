@@ -43,7 +43,7 @@ static void test_llc_ch ( linked_list_chunk const llc ,
   linked_list_chunk_add_front ( llc , chunk_copy ( ch ) ) ;
   linked_list_chunk_print ( llc , stdout ) ;
 
-    assert ( ! linked_list_chunk_is_empty ( llc ) ) ;
+  assert ( ! linked_list_chunk_is_empty ( llc ) ) ;
 }
 
 
@@ -55,7 +55,7 @@ int main ( void ) {
   chunk ch ;
   linked_list_chunk llc = linked_list_chunk_create () ;
   assert ( linked_list_chunk_is_empty ( llc ) ) ;
-  
+
   test_llc_ch ( llc , value_error_create ( 0 ) ) ;
   test_llc_ch ( llc , value_error_create ( 1 ) ) ;
   test_llc_ch ( llc , value_error_create ( 2 ) ) ;
@@ -75,21 +75,14 @@ int main ( void ) {
     chunk_print ( ch , stdout ) ;
     fprintf ( stdout , "\" :\n" ) ;
     linked_list_chunk_print ( llc_2 , stdout ) ;
-   // chunk_destroy ( ch ) ;
+    chunk_destroy ( ch ) ;
   }
   linked_list_chunk_destroy ( llc_2 );
   fprintf ( stdout , "*** Adding a copy of 3 first elements: \n" ) ;
   linked_list_chunk_add_self_copy_front ( llc_3 , 3 ) ;
   linked_list_chunk_print ( llc_3 , stdout ) ;
- 
-//déplacement du chunk_destroy
- while ( ! linked_list_chunk_is_empty ( llc_3 ) ) {
-	 chunk ch = linked_list_chunk_pop_front ( llc_3 ) ;
-	 chunk_destroy ( ch ) ;
-  }
 
   linked_list_chunk_destroy ( llc_3 );
-
 
   return 0 ;
 }
