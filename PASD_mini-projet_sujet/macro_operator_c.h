@@ -8,7 +8,7 @@
 
 # define OPERATOR_DECLARE( type_name )				\
   chunk operator_ ## type_name ## _create () {			\
-    return NULL ;						\
+    return NULL;						\
   }								\
   bool operator_is_ ## type_name ( chunk const ch ) {		\
     return true ;						\
@@ -21,22 +21,25 @@
  * Creation and destruction are thus handled regularly as any global variable.
  */
 
-# define OPERATOR_BASIC_FULL( op_name , op )				\
-									\
-  									\
-  static basic_type operator_ ## op_name ## _print ( chunk const ch ,	\
-						     va_list va ) {	\
-    return basic_type_erreur ;						\
-  }									\
+# define OPERATOR_BASIC_FULL( op_name , op )			                            	\
+                                                                                \
+                                                                                \
+  static basic_type operator_ ## op_name ## _print ( chunk const ch ,	          \
+						     va_list va ) {\
+    FILE * io = va_arg( va, FILE*);\
+    fprintf( io,"%s", #op );                               \
+                                                                   \
+    return basic_type_void ;						                                      \
+  }									                                                            \
 									\
   static basic_type operator_ ## op_name ## _destroy ( chunk const ch ,	\
 						       va_list va ) {	\
-    return basic_type_erreur ;						\
+    return basic_type_void ;						\
   }									\
 									\
   static basic_type operator_ ## op_name ## _copy ( chunk const ch ,	\
 						    va_list va ) {	\
-    return basic_type_void ;						\
+    return basic_type_pointer(ch) ;						\
   }									\
 									\
   static const message_action operator_ ## op_name ## _reactions [] = {	\
@@ -49,11 +52,12 @@
     .reactions = operator_ ## op_name ## _reactions  } ;		\
   									\
   chunk operator_ ## op_name ## _create () {				\
-    return NULL ;                                                       \
+    chunk ch = &operator_ ## op_name ## _instance;\
+    return ch;   \
   }									\
 									\
-  bool operator_is_ ## op_name ( chunk const ch ) {			\
-    return true ;                               			\
+  bool operator_is_ ## op_name ( chunk const ch ) {		\
+    return ch->reactions == operator_ ## op_name ## _reactions;  	\
   }
 
 
