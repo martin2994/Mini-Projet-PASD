@@ -2,7 +2,7 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <assert.h>
-
+# include <string.h>
 # include "interpreter.h"
 
 # undef NDEBUG   // FORCE ASSERT ACTIVATION
@@ -41,6 +41,16 @@ static void help_message ( char const * const prog_name ) {
  */
 int main ( int const argc ,
 	   char const * const argv [] ) {
-  help_message ( argv [ 0 ] ) ;
+  if(argc==0){
+  	help_message ( argv [ 0 ] ) ;
+  }else{
+	if (strcmp(argv[1],"-t")==0){
+		FILE *f = fopen(argv[2],"r");
+		interprete(f,true);
+	}else{
+		FILE *f = fopen(argv[1],"r");
+		interprete(f,false);
+	}
+  }
   return 0 ; 	      
 }

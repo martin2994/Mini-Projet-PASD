@@ -535,7 +535,7 @@ chunk createNumber(char * string_input, bool isNegativ){
 
       if(new_double){
           if(isNegativ){ new_double = -new_double; }
-          printf("\nFinal value : %f\n", new_double);
+        //  printf("\nFinal value : %f\n", new_double);
           return value_double_create(new_double);
       }
     }
@@ -543,7 +543,7 @@ chunk createNumber(char * string_input, bool isNegativ){
         new_int = atoll(string_input);
         if(new_int){
             if(isNegativ){ new_int = -new_int; }
-            printf("\nFinal value : %lld\n", new_int);
+           // printf("\nFinal value : %lld\n", new_int);
             return value_int_create(new_int);
         }
     }
