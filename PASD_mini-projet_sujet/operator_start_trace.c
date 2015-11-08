@@ -24,7 +24,7 @@
  * \copyright GNU Public License.
  */
 
-static basic_type operator_stop_trace_evaluate( chunk ch, va_list va){
+static basic_type operator_start_trace_evaluate( chunk ch, va_list va){
 
     assert( NULL != ch );
     interpretation_context inter_context = va_arg( va, interpretation_context );
@@ -36,4 +36,4 @@ static basic_type operator_stop_trace_evaluate( chunk ch, va_list va){
 
 }
 
-OPERATOR_BASIC_FULL( stop_trace, stop_trace )
+OPERATOR_BASIC_FULL( start_trace, start_trace )

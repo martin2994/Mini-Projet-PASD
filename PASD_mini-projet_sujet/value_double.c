@@ -79,7 +79,7 @@ chunk value_double_create ( long double const val ) {
     return ch;							
   }
 
-
+VALUE_IS_FULL(double)
 //VALUE_DECLARE( double , long double ) 
 
 

@@ -83,7 +83,7 @@ chunk value_sstring_create ( sstring const val ) {
   }
 
 
-
+VALUE_IS_FULL(sstring)
 //VALUE_DECLARE ( sstring , sstring ) 
 
 

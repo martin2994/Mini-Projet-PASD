@@ -85,5 +85,5 @@ chunk value_protected_label_create ( sstring const val ) {
     return ch;
   }
 
-
+VALUE_IS_FULL(protected_label)
 //VALUE_DECLARE( protected_label , sstring )

@@ -75,5 +75,5 @@ chunk value_int_create ( long long int const val ) {
     return ch;							
   }
 
-
+VALUE_IS_FULL(int)
 //VALUE_DECLARE( int, long long int )

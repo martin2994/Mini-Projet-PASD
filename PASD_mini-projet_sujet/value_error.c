@@ -10,7 +10,7 @@
 # undef NDEBUG   // FORCE ASSERT ACTIVATION
 
 
-/*!
+/*! 
  * Defined for I/O: beginning for the print.
  * The number should come right after.
  */
@@ -30,7 +30,7 @@ typedef struct {
 
 static basic_type value_error_get_value ( chunk const ch ,
 					  va_list va ) {
-  return basic_type_long_long_int ( ( ( value_error_state ) ch ) -> error ) ;
+  return basic_type_long_long_int ( ( ( value_error_state ) ch ) -> error ) ; 
 }
 
 
@@ -48,7 +48,7 @@ static basic_type value_error_print ( chunk const ch ,
 static basic_type value_error_destroy ( chunk const ch ,
 					va_list va ) {
   if ( 1 == ( ( value_error_state  ) ( ch -> state ) ) -> copies_count -- ) {
-    free ( ch -> state ) ;
+    free ( ch -> state ) ;  
     ch -> state = NULL ;
     ch -> reactions = NULL ;
     free ( ch ) ;
@@ -61,7 +61,7 @@ static basic_type value_error_copy ( chunk const ch ,
 				     va_list va ) {
   // not commented since it has to be explained
   ( ( value_error_state ) ( ch -> state ) ) -> copies_count ++ ;
-  return basic_type_pointer( ch ) ;
+  return basic_type_pointer( ch ) ; 
 }
 
 
@@ -73,9 +73,9 @@ static const message_action value_error_reactions [] = {
 
 chunk value_error_create ( error_code const error ) {
   //  Allocation
-  chunk ch = ( chunk ) malloc ( sizeof ( chunk_struct ) ) ;
+  chunk ch = ( chunk ) malloc ( sizeof ( chunk_struct ) ) ; 
   assert ( NULL != ch ) ;
-  ch -> state = malloc ( sizeof ( value_error_state ) ) ;
+  ch -> state = malloc ( sizeof ( value_error_state ) ) ; 
   assert ( NULL != ch -> state ) ;
   //  Initialisation
   ( ( value_error_state ) ( ch -> state ) ) -> copies_count = 1 ;

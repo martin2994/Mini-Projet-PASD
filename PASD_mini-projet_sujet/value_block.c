@@ -118,3 +118,4 @@ linked_list_chunk value_block_get_list ( chunk const vb )  {
 }
 
 
+VALUE_IS_FULL(block)

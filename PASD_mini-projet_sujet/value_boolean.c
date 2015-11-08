@@ -91,7 +91,7 @@ chunk value_boolean_create ( bool const val ) {
     return ch;							
   }
 
-
+VALUE_IS_FULL(boolean)
 //VALUE_DECLARE ( boolean , bool )
 
 

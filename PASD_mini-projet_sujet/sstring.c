@@ -64,14 +64,12 @@ sstring sstring_create_string ( char const * const st )  {
       int length = strlen(st);
 
       if(length > 0){
-          char * charsequence = malloc( (length + 1) );
-          if ( NULL != charsequence ){
-              strncpy(charsequence, st, length + 1 );
-              free(charsequence[length]);
-              ss->length       = length;
-              ss->charsequence = charsequence;
-              return ss ;
-          }
+          char * charsequence = malloc( length*sizeof(char) );
+          for (int i=0;i<length;i++)
+             charsequence[i]=st[i];
+          ss->length       = length;
+          ss->charsequence = charsequence;
+          return ss ;
       }
       else{
         ss->length       = 0;

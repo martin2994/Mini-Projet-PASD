@@ -277,7 +277,7 @@ bool linked_list_chunk_add_self_copy_front ( linked_list_chunk llc ,
     linked_list_chunk cpy = linked_list_chunk_create();
 
     if ( !linked_list_chunk_is_empty(llc) ){
-        link p = llc->first;
+        link p =  llc->first;
 
         while ( NULL != p->next ){
             linked_list_chunk_add_back( cpy, chunk_copy(p->value));
